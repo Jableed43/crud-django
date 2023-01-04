@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-7 offset-md-3">
+
+            <form method="POST" class="card card-body">
+                <h1 class="text-center">Signup</h1>
+                <!-- Aqui se muestran los errores de validacion -->
+                {{error}}
+                <!-- Mecanismo de seguridad via token -->
+                {% csrf_token %}
+                <!-- Acomoda el codigo del formulario de python -->
+                <!-- Este formulario es un modelo de desarrollo brindado por django usercreationform-->
+                <!-- {{form.as_p}} -->
+
+                <div class="mb-3">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" class="form-control" name="username">
+                </div>
+                <div class="mb-3">
+                    <label for="password1">Password:</label>
+                    <input type="password" id="password1" class="form-control" name="password1">
+                </div>
+                <div class="mb-3">
+                    <label for="password2">Confirm your Password:</label>
+                    <input type="password" id="password2" class="form-control" name="password2">
+                </div>
+
+
+
+                <button class="btn btn-primary">Signup</button>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
